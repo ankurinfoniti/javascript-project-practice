@@ -35,7 +35,7 @@
               placeholder="Website URL"
             />
           </div>
-          <div class="form-group">
+          <div class="form-group mt-3">
             <button type="submit" class="btn btn-primary">Submit</button>
           </div>
         </form>
@@ -64,12 +64,16 @@
         e.preventDefault();
 
         // get form value
-        let siteName = document.getElementById('siteName');
-        let siteUrl = document.getElementById('siteUrl');
+        let siteName = document.getElementById('siteName').value;
+        let siteUrl = document.getElementById('siteUrl').value;
+
+        if (!validateForm(siteName, siteUrl)) {
+          return false;
+        }
 
         let bookmark = {
-          name: siteName.value,
-          url: siteUrl.value,
+          name: siteName,
+          url: siteUrl,
         };
 
         // Test if bookmarks is null
@@ -86,6 +90,9 @@
           bookmarks.push(bookmark);
           localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
         }
+
+        // reset form
+        document.getElementById('myForm').reset();
 
         // show updated records
         fetchBookmarks();
@@ -126,6 +133,31 @@
 
         // show updated records
         fetchBookmarks();
+      }
+
+      function checkUrl(string) {
+        let givenURL;
+
+        try {
+          givenURL = new URL(string);
+        } catch (error) {
+          return false;
+        }
+        return true;
+      }
+
+      function validateForm(siteName, siteUrl) {
+        if (!siteUrl || !siteName) {
+          alert('Please fill in the form');
+          return false;
+        }
+
+        if (!checkUrl(siteUrl)) {
+          alert('Please enter a valid url');
+          return false;
+        }
+
+        return true;
       }
     </script>
   </body>
