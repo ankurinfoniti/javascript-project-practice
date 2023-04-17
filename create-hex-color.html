@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Background Hex Color</title>
+    <style>
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        text-align: center;
+      }
+
+      .hexColor {
+        text-transform: capitalize;
+      }
+
+      .hex {
+        font-size: 3rem;
+      }
+
+      .hexBtn {
+        color: #f15025;
+        border: 3px solid #f15025;
+        border-radius: 7px;
+        background: rgba(0, 0, 0, 0.6);
+        font-size: 1.6rem;
+        padding: 0.25rem 0.5rem;
+        cursor: pointer;
+        outline: none;
+        text-transform: capitalize;
+      }
+
+      .hexBtn:hover {
+        background: rgb(0, 0, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="hexColor">
+        this hex color code is: <span class="hex"></span>
+      </h2>
+      <button type="button" class="hexBtn">press here to change color</button>
+    </div>
+
+    <script>
+      const hexNumbers = [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        'A',
+        'B',
+        'C',
+        'D',
+        'E',
+        'F',
+      ];
+      const hexBtn = document.querySelector('.hexBtn');
+      const bodyBch = document.querySelector('body');
+      const hex = document.querySelector('.hex');
+
+      hexBtn.addEventListener('click', changeHexColor);
+
+      function changeHexColor() {
+        let hexCol = '#';
+
+        for (let index = 0; index < 6; index++) {
+          let random = Math.floor(Math.random() * hexNumbers.length);
+          hexCol += hexNumbers[random];
+        }
+
+        bodyBch.style.backgroundColor = hexCol;
+        hex.innerHTML = hexCol;
+      }
+    </script>
+  </body>
+</html>
