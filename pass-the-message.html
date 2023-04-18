@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pass The Message</title>
+    <style>
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #88d5e9;
+        color: #333;
+        font-family: 'calibri', sans-serif;
+        font-weight: 400;
+        text-transform: capitalize;
+      }
+
+      .container {
+        text-align: center;
+        padding: 2rem;
+        border-radius: 7px;
+        background: #fff;
+        flex: 0 0 80%;
+      }
+
+      button {
+        display: block;
+        font-size: 2rem;
+        margin: 1rem auto;
+        padding: 0.5rem 1rem;
+        color: #fff;
+        background: #6cc3d8;
+        border-radius: 8px;
+        border: none;
+        text-transform: capitalize;
+      }
+
+      button:hover {
+        opacity: 0.8;
+        cursor: pointer;
+      }
+
+      input[type='text'] {
+        padding: 0.5rem;
+        margin: 1rem;
+        border-radius: 5px;
+        font-size: 1.5rem;
+        border: 3px solid #88d5e9;
+        outline: none;
+        box-shadow: 0 0 10px #88d5e9;
+      }
+
+      input[type='text']:focus {
+        box-shadow: 0 0 10px #88d5e9;
+      }
+
+      #messageOut {
+        margin: 0.5rem 0;
+        color: #88d5e9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>message you would like to send</h1>
+      <input type="text" name="messageIn" id="messageIn" />
+      <button type="button" id="sendBtn">press to send</button>
+      <h1>last message delivered</h1>
+      <h1 id="messageOut"></h1>
+    </div>
+
+    <script>
+      const sendBtn = document.querySelector('#sendBtn');
+      const messageIn = document.querySelector('#messageIn');
+      const messageOut = document.querySelector('#messageOut');
+
+      sendBtn.addEventListener('click', sendMessage);
+
+      function sendMessage() {
+        const message = messageIn.value;
+
+        if (message === '') {
+          alert('Please Enter Valid Message. Current Value is Empty.');
+          return;
+        }
+
+        messageOut.innerHTML = message;
+        messageIn.value = '';
+      }
+    </script>
+  </body>
+</html>
