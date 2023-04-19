@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background Image Slider</title>
+    <style>
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url('images/bgslider/background.jpg') center/cover no-repeat;
+      }
+
+      .images {
+        background: yellow;
+        flex: 0 0 80%;
+        min-height: 70vh;
+        background: url('images/bgslider/bcg-0.jpg') center/cover no-repeat;
+        border-radius: 15px;
+        box-shadow: 5px 10px black;
+        position: relative;
+      }
+
+      .btn {
+        display: inline-block;
+        background: white;
+        color: black;
+        border: 3px solid green;
+        font-size: 1.5rem;
+        padding: 0.5rem;
+        border-radius: 20%;
+        box-shadow: 2px 5px black;
+        outline: none;
+      }
+
+      .prevBtn {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(-50%, -50%);
+      }
+
+      .nextBtn {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(50%, -50%);
+      }
+
+      .btn:active {
+        background: gray;
+        box-shadow: 1px 1px gray;
+      }
+
+      .btn:hover {
+        background: green;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="images">
+      <button type="button" class="btn prevBtn">Prev Btn</button>
+      <button type="button" class="btn nextBtn">Next Btn</button>
+    </div>
+    <script>
+      const prevBtn = document.querySelector('.prevBtn');
+      const nextBtn = document.querySelector('.nextBtn');
+      const images = document.querySelector('.images');
+      const imagesData = [
+        'bcg-0.jpg',
+        'bcg-1.jpg',
+        'bcg-2.jpg',
+        'bcg-3.jpg',
+        'bcg-4.jpg',
+      ];
+      let counter = 0;
+
+      prevBtn.addEventListener('click', prevSlide);
+      nextBtn.addEventListener('click', nextSlide);
+
+      function nextSlide() {
+        counter++;
+        if (counter === imagesData.length) {
+          counter = 0;
+        }
+        images.style.backgroundImage = `url(images/bgslider/${imagesData[counter]})`;
+      }
+
+      function prevSlide() {
+        counter--;
+        if (counter === -1) {
+          counter = imagesData.length - 1;
+        }
+        images.style.backgroundImage = `url(images/bgslider/${imagesData[counter]})`;
+      }
+    </script>
+  </body>
+</html>
