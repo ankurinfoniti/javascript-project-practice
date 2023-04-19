@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter Project</title>
+    <style>
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #88d5e9;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: capitalize;
+      }
+
+      .counter-box {
+        flex: 0 0 80%;
+        text-align: center;
+        border: 3px solid gray;
+        padding: 1rem;
+        font-weight: bold;
+        box-shadow: 3px 3px 10px 10px black;
+      }
+
+      .counter {
+        font-size: 6rem;
+      }
+
+      .btn {
+        background-color: white;
+        border-radius: 8px;
+        font-size: 2rem;
+        padding: 0.5rem;
+        margin: 0.5rem 0.25rem;
+        border: 3px solid #f15025;
+        box-shadow: 0px 5px #001221;
+        outline: none;
+      }
+
+      .btn:hover {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      .btn:active {
+        box-shadow: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="counter-box">
+      <h1>counter</h1>
+      <h1 class="counter">0</h1>
+      <div id="btns">
+        <button type="button" class="btn" id="lowerCountBtn">
+          Lower Count
+        </button>
+        <button type="button" class="btn" id="addCountBtn">Add Count</button>
+      </div>
+    </div>
+    <script>
+      let counter = document.querySelector('.counter');
+      let addCountBtn = document.querySelector('#addCountBtn');
+      let lowerCountBtn = document.querySelector('#lowerCountBtn');
+
+      let count = 0;
+
+      addCountBtn.addEventListener('click', incrementCounter);
+      lowerCountBtn.addEventListener('click', decrementCounter);
+
+      function incrementCounter() {
+        count++;
+        counter.innerHTML = count;
+        changeColor();
+      }
+
+      function decrementCounter() {
+        count--;
+        counter.innerHTML = count;
+        changeColor();
+      }
+
+      function changeColor() {
+        if (count > 0) {
+          counter.style.color = '#4caf50';
+        }
+
+        if (count === 0) {
+          counter.style.color = 'white';
+        }
+
+        if (count < 0) {
+          counter.style.color = 'red';
+        }
+
+        counter.animate([{ opacity: '0.2' }, { opacity: '1.0' }], {
+          duration: 1000,
+          fill: 'forwards',
+        });
+      }
+    </script>
+  </body>
+</html>
