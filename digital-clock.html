@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter Project</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxygen+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #000;
+      }
+
+      #clock {
+        font-family: 'Oxygen Mono', monospace;
+        font-size: 5rem;
+        color: #32cd32;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="clock"></div>
+    <script>
+      const clock = document.getElementById('clock');
+
+      function showTime() {
+        let date = new Date();
+        let hours = date.getHours(); // 0-23
+        let minutes = date.getMinutes(); // 0-59
+        let seconds = date.getSeconds(); // 0-59
+
+        let formatHours = convertFormat(hours);
+
+        hours = checkTime(hours);
+
+        hours = addZero(hours);
+        minutes = addZero(minutes);
+        seconds = addZero(seconds);
+
+        clock.innerHTML = `${hours} : ${minutes} : ${seconds} ${formatHours}`;
+      }
+
+      function convertFormat(hours) {
+        let format = 'AM';
+
+        if (hours >= 12) {
+          format = 'PM';
+        }
+        return format;
+      }
+
+      function checkTime(hours) {
+        if (hours > 12) {
+          hours -= 12;
+        }
+        if (hours == 0) {
+          hours = 12;
+        }
+        return hours;
+      }
+
+      function addZero(time) {
+        if (time < 10) {
+          time = '0' + time;
+        }
+        return time;
+      }
+
+      setInterval(showTime, 1000);
+    </script>
+  </body>
+</html>
