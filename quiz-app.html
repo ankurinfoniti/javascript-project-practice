@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quiz App</title>
+    <style>
+      body {
+        background-color: #eeeeee;
+      }
+
+      .grid {
+        width: 70%;
+        min-height: 500px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 10px 50px 50px 50px;
+        border-radius: 50px;
+        border: 2px solid #cbcbcb;
+        box-shadow: 10px 15px 5px #cbcbcb;
+      }
+
+      .grid h1 {
+        font-family: sans-serif;
+        background-color: #57636a;
+        font-size: 50px;
+        text-align: center;
+        color: #fff;
+        padding: 2px 0px;
+        border-radius: 50px;
+      }
+
+      #question {
+        font-family: sans-serif;
+        font-size: 30px;
+        color: #5a6772;
+      }
+
+      .buttons {
+        margin-top: 30px;
+      }
+
+      #btn0,
+      #btn1,
+      #btn2,
+      #btn3 {
+        background-color: #778897;
+        width: 30%;
+        font-size: 20px;
+        color: #fff;
+        border: 1px solid #1d3c6a;
+        border-radius: 50px;
+        margin: 10px 40px 10px 0px;
+        padding: 10px 10px;
+      }
+
+      #btn0:hover,
+      #btn1:hover,
+      #btn2:hover,
+      #btn3:hover {
+        cursor: pointer;
+        background-color: #57636e;
+      }
+
+      #btn0:focus,
+      #btn1:focus,
+      #btn2:focus,
+      #btn3:focus {
+        outline: 0;
+      }
+
+      #progress {
+        color: #2b2b2b;
+        font-size: 18px;
+      }
+
+      #result {
+        display: none;
+      }
+
+      #result h2 {
+        text-align: center;
+        color: #5a6772;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div id="quiz">
+        <h1>Quiz</h1>
+        <hr style="margin-top: 20px" />
+
+        <p id="question"></p>
+
+        <div class="buttons">
+          <button id="btn0"></button>
+          <button id="btn1"></button>
+          <button id="btn2"></button>
+          <button id="btn3"></button>
+        </div>
+
+        <hr style="margin-top: 50px" />
+        <footer>
+          <p id="progress">Question x of y.</p>
+        </footer>
+      </div>
+      <div id="result">
+        <h1>Result</h1>
+        <h2 id="score"></h2>
+      </div>
+    </div>
+
+    <script>
+      const questions = [
+        {
+          question: 'Which one is not an object oriented programming language?',
+          answers: ['Java', 'C#', 'C++', 'C'],
+          correct: 'C',
+        },
+        {
+          question: 'Which language is used for styling web pages?',
+          answers: ['HTML', 'Jquery', 'CSS', 'XML'],
+          correct: 'CSS',
+        },
+        {
+          question: 'Which language is used for web apps?',
+          answers: ['PHP', 'Python', 'JavaScript', 'All'],
+          correct: 'All',
+        },
+        {
+          question: 'MVC is a ______________.',
+          answers: ['Language', 'Library', 'Framework', 'Design Pattern'],
+          correct: 'Design Pattern',
+        },
+        {
+          question:
+            'Which of the following keywords is used to define a variable in Javascript?',
+          answers: ['var', 'let', 'Both A and B', 'None of the above'],
+          correct: 'Both A and B',
+        },
+      ];
+      const results = { correct: 0, incorrect: 0 };
+      let currentQuestion = questions[0];
+      let index = 0;
+
+      // element selector
+      const progress = document.getElementById('progress');
+      const questionDiv = document.getElementById('question');
+      const btn0 = document.getElementById('btn0');
+      const btn1 = document.getElementById('btn1');
+      const btn2 = document.getElementById('btn2');
+      const btn3 = document.getElementById('btn3');
+      const score = document.getElementById('score');
+
+      // set question
+      function setQuestion() {
+        questionDiv.innerText = currentQuestion.question;
+        btn0.innerText = currentQuestion.answers[0];
+        btn1.innerText = currentQuestion.answers[1];
+        btn2.innerText = currentQuestion.answers[2];
+        btn3.innerText = currentQuestion.answers[3];
+
+        // show question progress
+        setProgress(index + 1);
+        // increase it to show next question
+        index++;
+      }
+
+      // set progress
+      function setProgress(questionNumber) {
+        progress.innerText = `Question ${questionNumber} of ${questions.length}`;
+      }
+
+      // change question
+      function changeQuestion(event) {
+        const choice = event.target.innerText;
+
+        if (choice === currentQuestion.correct) {
+          results.correct++;
+        } else {
+          results.incorrect++;
+        }
+
+        currentQuestion = questions[index];
+
+        if (index === questions.length) {
+          showResult();
+        } else {
+          setQuestion();
+        }
+      }
+
+      // show result page
+      function showResult() {
+        document.getElementById('quiz').style.display = 'none';
+        document.getElementById('result').style.display = 'block';
+        score.innerText = `Your scores: ${results.correct}`;
+      }
+
+      // call function when page load
+      setQuestion(currentQuestion);
+
+      // add event listener to button
+      btn0.addEventListener('click', changeQuestion);
+      btn1.addEventListener('click', changeQuestion);
+      btn2.addEventListener('click', changeQuestion);
+      btn3.addEventListener('click', changeQuestion);
+    </script>
+  </body>
+</html>
