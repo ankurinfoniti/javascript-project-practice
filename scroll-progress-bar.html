@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll Progress Bar</title>
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+      }
+
+      html {
+        font-family: 'Roboto', sans-serif;
+        font-size: 62.5%;
+        font-weight: normal;
+        letter-spacing: 0.2px;
+        color: #545e6f;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        background: #f1f2f5;
+      }
+
+      .header {
+        background: #451771;
+        padding: 20px 25px;
+      }
+
+      .logo {
+        display: flex;
+        justify-content: center;
+      }
+
+      .logo-name {
+        margin: 0 0 0 14px;
+        line-height: 30px;
+        font-size: 1.6rem;
+        color: #fff;
+      }
+
+      #app {
+        padding-top: 50px;
+        text-align: center;
+      }
+
+      #app p {
+        font-size: 16px;
+      }
+
+      .progress-bar {
+        position: fixed;
+        top: 0;
+        height: 4px;
+        width: 0%;
+        background: #ff16b7;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <!-- <div class="logo-ultimate"></div> -->
+        <h1 class="logo-name">Scroll Progress Bar</h1>
+      </div>
+    </header>
+    <div id="app">
+      <div class="progress-bar"></div>
+      <p>
+        Integer a quam ac quam facilisis consectetur in a sem. Nam sed hendrerit
+        sem. Nunc posuere at ipsum vel convallis. Nam massa sapien, pretium sit
+        amet commodo eu, euismod vel turpis. Quisque sed turpis vel augue
+        suscipit congue. In egestas sodales sagittis. Nam in orci ac erat
+        finibus placerat a quis sem. Nunc rutrum accumsan accumsan. Sed interdum
+        convallis est. Nulla euismod, neque nec laoreet rutrum, mi turpis
+        consequat eros, non dictum odio mi at nisl. Nulla non elit finibus,
+        suscipit leo vitae, lobortis sem. In vestibulum ante arcu, nec gravida
+        libero molestie sed. Quisque tristique, arcu at volutpat scelerisque,
+        est augue efficitur diam, sit amet egestas sem lacus quis lectus. Nam
+        nisi ipsum, convallis at purus eu, gravida euismod leo. Phasellus
+        vestibulum purus libero, nec vulputate magna consectetur sed.
+      </p>
+      <p>
+        Integer a quam ac quam facilisis consectetur in a sem. Nam sed hendrerit
+        sem. Nunc posuere at ipsum vel convallis. Nam massa sapien, pretium sit
+        amet commodo eu, euismod vel turpis. Quisque sed turpis vel augue
+        suscipit congue. In egestas sodales sagittis. Nam in orci ac erat
+        finibus placerat a quis sem. Nunc rutrum accumsan accumsan. Sed interdum
+        convallis est. Nulla euismod, neque nec laoreet rutrum, mi turpis
+        consequat eros, non dictum odio mi at nisl. Nulla non elit finibus,
+        suscipit leo vitae, lobortis sem. In vestibulum ante arcu, nec gravida
+        libero molestie sed. Quisque tristique, arcu at volutpat scelerisque,
+        est augue efficitur diam, sit amet egestas sem lacus quis lectus. Nam
+        nisi ipsum, convallis at purus eu, gravida euismod leo. Phasellus
+        vestibulum purus libero, nec vulputate magna consectetur sed.
+      </p>
+      <p>
+        Integer a quam ac quam facilisis consectetur in a sem. Nam sed hendrerit
+        sem. Nunc posuere at ipsum vel convallis. Nam massa sapien, pretium sit
+        amet commodo eu, euismod vel turpis. Quisque sed turpis vel augue
+        suscipit congue. In egestas sodales sagittis. Nam in orci ac erat
+        finibus placerat a quis sem. Nunc rutrum accumsan accumsan. Sed interdum
+        convallis est. Nulla euismod, neque nec laoreet rutrum, mi turpis
+        consequat eros, non dictum odio mi at nisl. Nulla non elit finibus,
+        suscipit leo vitae, lobortis sem. In vestibulum ante arcu, nec gravida
+        libero molestie sed. Quisque tristique, arcu at volutpat scelerisque,
+        est augue efficitur diam, sit amet egestas sem lacus quis lectus. Nam
+        nisi ipsum, convallis at purus eu, gravida euismod leo. Phasellus
+        vestibulum purus libero, nec vulputate magna consectetur sed.
+      </p>
+      <p>
+        Integer a quam ac quam facilisis consectetur in a sem. Nam sed hendrerit
+        sem. Nunc posuere at ipsum vel convallis. Nam massa sapien, pretium sit
+        amet commodo eu, euismod vel turpis. Quisque sed turpis vel augue
+        suscipit congue. In egestas sodales sagittis. Nam in orci ac erat
+        finibus placerat a quis sem. Nunc rutrum accumsan accumsan. Sed interdum
+        convallis est. Nulla euismod, neque nec laoreet rutrum, mi turpis
+        consequat eros, non dictum odio mi at nisl. Nulla non elit finibus,
+        suscipit leo vitae, lobortis sem. In vestibulum ante arcu, nec gravida
+        libero molestie sed. Quisque tristique, arcu at volutpat scelerisque,
+        est augue efficitur diam, sit amet egestas sem lacus quis lectus. Nam
+        nisi ipsum, convallis at purus eu, gravida euismod leo. Phasellus
+        vestibulum purus libero, nec vulputate magna consectetur sed.
+      </p>
+      <p>
+        Integer a quam ac quam facilisis consectetur in a sem. Nam sed hendrerit
+        sem. Nunc posuere at ipsum vel convallis. Nam massa sapien, pretium sit
+        amet commodo eu, euismod vel turpis. Quisque sed turpis vel augue
+        suscipit congue. In egestas sodales sagittis. Nam in orci ac erat
+        finibus placerat a quis sem. Nunc rutrum accumsan accumsan. Sed interdum
+        convallis est. Nulla euismod, neque nec laoreet rutrum, mi turpis
+        consequat eros, non dictum odio mi at nisl. Nulla non elit finibus,
+        suscipit leo vitae, lobortis sem. In vestibulum ante arcu, nec gravida
+        libero molestie sed. Quisque tristique, arcu at volutpat scelerisque,
+        est augue efficitur diam, sit amet egestas sem lacus quis lectus. Nam
+        nisi ipsum, convallis at purus eu, gravida euismod leo. Phasellus
+        vestibulum purus libero, nec vulputate magna consectetur sed.
+      </p>
+      <p>
+        Integer a quam ac quam facilisis consectetur in a sem. Nam sed hendrerit
+        sem. Nunc posuere at ipsum vel convallis. Nam massa sapien, pretium sit
+        amet commodo eu, euismod vel turpis. Quisque sed turpis vel augue
+        suscipit congue. In egestas sodales sagittis. Nam in orci ac erat
+        finibus placerat a quis sem. Nunc rutrum accumsan accumsan. Sed interdum
+        convallis est. Nulla euismod, neque nec laoreet rutrum, mi turpis
+        consequat eros, non dictum odio mi at nisl. Nulla non elit finibus,
+        suscipit leo vitae, lobortis sem. In vestibulum ante arcu, nec gravida
+        libero molestie sed. Quisque tristique, arcu at volutpat scelerisque,
+        est augue efficitur diam, sit amet egestas sem lacus quis lectus. Nam
+        nisi ipsum, convallis at purus eu, gravida euismod leo. Phasellus
+        vestibulum purus libero, nec vulputate magna consectetur sed.
+      </p>
+      <p>
+        Integer a quam ac quam facilisis consectetur in a sem. Nam sed hendrerit
+        sem. Nunc posuere at ipsum vel convallis. Nam massa sapien, pretium sit
+        amet commodo eu, euismod vel turpis. Quisque sed turpis vel augue
+        suscipit congue. In egestas sodales sagittis. Nam in orci ac erat
+        finibus placerat a quis sem. Nunc rutrum accumsan accumsan. Sed interdum
+        convallis est. Nulla euismod, neque nec laoreet rutrum, mi turpis
+        consequat eros, non dictum odio mi at nisl. Nulla non elit finibus,
+        suscipit leo vitae, lobortis sem. In vestibulum ante arcu, nec gravida
+        libero molestie sed. Quisque tristique, arcu at volutpat scelerisque,
+        est augue efficitur diam, sit amet egestas sem lacus quis lectus. Nam
+        nisi ipsum, convallis at purus eu, gravida euismod leo. Phasellus
+        vestibulum purus libero, nec vulputate magna consectetur sed.
+      </p>
+      <p>
+        Integer a quam ac quam facilisis consectetur in a sem. Nam sed hendrerit
+        sem. Nunc posuere at ipsum vel convallis. Nam massa sapien, pretium sit
+        amet commodo eu, euismod vel turpis. Quisque sed turpis vel augue
+        suscipit congue. In egestas sodales sagittis. Nam in orci ac erat
+        finibus placerat a quis sem. Nunc rutrum accumsan accumsan. Sed interdum
+        convallis est. Nulla euismod, neque nec laoreet rutrum, mi turpis
+        consequat eros, non dictum odio mi at nisl. Nulla non elit finibus,
+        suscipit leo vitae, lobortis sem. In vestibulum ante arcu, nec gravida
+        libero molestie sed. Quisque tristique, arcu at volutpat scelerisque,
+        est augue efficitur diam, sit amet egestas sem lacus quis lectus. Nam
+        nisi ipsum, convallis at purus eu, gravida euismod leo. Phasellus
+        vestibulum purus libero, nec vulputate magna consectetur sed.
+      </p>
+      <p>
+        Integer a quam ac quam facilisis consectetur in a sem. Nam sed hendrerit
+        sem. Nunc posuere at ipsum vel convallis. Nam massa sapien, pretium sit
+        amet commodo eu, euismod vel turpis. Quisque sed turpis vel augue
+        suscipit congue. In egestas sodales sagittis. Nam in orci ac erat
+        finibus placerat a quis sem. Nunc rutrum accumsan accumsan. Sed interdum
+        convallis est. Nulla euismod, neque nec laoreet rutrum, mi turpis
+        consequat eros, non dictum odio mi at nisl. Nulla non elit finibus,
+        suscipit leo vitae, lobortis sem. In vestibulum ante arcu, nec gravida
+        libero molestie sed. Quisque tristique, arcu at volutpat scelerisque,
+        est augue efficitur diam, sit amet egestas sem lacus quis lectus. Nam
+        nisi ipsum, convallis at purus eu, gravida euismod leo. Phasellus
+        vestibulum purus libero, nec vulputate magna consectetur sed.
+      </p>
+      <p>
+        Integer a quam ac quam facilisis consectetur in a sem. Nam sed hendrerit
+        sem. Nunc posuere at ipsum vel convallis. Nam massa sapien, pretium sit
+        amet commodo eu, euismod vel turpis. Quisque sed turpis vel augue
+        suscipit congue. In egestas sodales sagittis. Nam in orci ac erat
+        finibus placerat a quis sem. Nunc rutrum accumsan accumsan. Sed interdum
+        convallis est. Nulla euismod, neque nec laoreet rutrum, mi turpis
+        consequat eros, non dictum odio mi at nisl. Nulla non elit finibus,
+        suscipit leo vitae, lobortis sem. In vestibulum ante arcu, nec gravida
+        libero molestie sed. Quisque tristique, arcu at volutpat scelerisque,
+        est augue efficitur diam, sit amet egestas sem lacus quis lectus. Nam
+        nisi ipsum, convallis at purus eu, gravida euismod leo. Phasellus
+        vestibulum purus libero, nec vulputate magna consectetur sed.
+      </p>
+      <p>
+        Integer a quam ac quam facilisis consectetur in a sem. Nam sed hendrerit
+        sem. Nunc posuere at ipsum vel convallis. Nam massa sapien, pretium sit
+        amet commodo eu, euismod vel turpis. Quisque sed turpis vel augue
+        suscipit congue. In egestas sodales sagittis. Nam in orci ac erat
+        finibus placerat a quis sem. Nunc rutrum accumsan accumsan. Sed interdum
+        convallis est. Nulla euismod, neque nec laoreet rutrum, mi turpis
+        consequat eros, non dictum odio mi at nisl. Nulla non elit finibus,
+        suscipit leo vitae, lobortis sem. In vestibulum ante arcu, nec gravida
+        libero molestie sed. Quisque tristique, arcu at volutpat scelerisque,
+        est augue efficitur diam, sit amet egestas sem lacus quis lectus. Nam
+        nisi ipsum, convallis at purus eu, gravida euismod leo. Phasellus
+        vestibulum purus libero, nec vulputate magna consectetur sed.
+      </p>
+      <p>
+        Integer a quam ac quam facilisis consectetur in a sem. Nam sed hendrerit
+        sem. Nunc posuere at ipsum vel convallis. Nam massa sapien, pretium sit
+        amet commodo eu, euismod vel turpis. Quisque sed turpis vel augue
+        suscipit congue. In egestas sodales sagittis. Nam in orci ac erat
+        finibus placerat a quis sem. Nunc rutrum accumsan accumsan. Sed interdum
+        convallis est. Nulla euismod, neque nec laoreet rutrum, mi turpis
+        consequat eros, non dictum odio mi at nisl. Nulla non elit finibus,
+        suscipit leo vitae, lobortis sem. In vestibulum ante arcu, nec gravida
+        libero molestie sed. Quisque tristique, arcu at volutpat scelerisque,
+        est augue efficitur diam, sit amet egestas sem lacus quis lectus. Nam
+        nisi ipsum, convallis at purus eu, gravida euismod leo. Phasellus
+        vestibulum purus libero, nec vulputate magna consectetur sed.
+      </p>
+      <p>
+        Integer a quam ac quam facilisis consectetur in a sem. Nam sed hendrerit
+        sem. Nunc posuere at ipsum vel convallis. Nam massa sapien, pretium sit
+        amet commodo eu, euismod vel turpis. Quisque sed turpis vel augue
+        suscipit congue. In egestas sodales sagittis. Nam in orci ac erat
+        finibus placerat a quis sem. Nunc rutrum accumsan accumsan. Sed interdum
+        convallis est. Nulla euismod, neque nec laoreet rutrum, mi turpis
+        consequat eros, non dictum odio mi at nisl. Nulla non elit finibus,
+        suscipit leo vitae, lobortis sem. In vestibulum ante arcu, nec gravida
+        libero molestie sed. Quisque tristique, arcu at volutpat scelerisque,
+        est augue efficitur diam, sit amet egestas sem lacus quis lectus. Nam
+        nisi ipsum, convallis at purus eu, gravida euismod leo. Phasellus
+        vestibulum purus libero, nec vulputate magna consectetur sed.
+      </p>
+    </div>
+
+    <script>
+      /*
+       * Calculate progress based on scroll position
+       */
+      function calculateScrollPercentage(element) {
+        const { scrollTop, scrollHeight, clientHeight } = element;
+
+        return (scrollTop / (scrollHeight - clientHeight)) * 100;
+      }
+
+      // elem
+      const progressBar = document.querySelector('.progress-bar');
+
+      document.addEventListener('scroll', (event) => {
+        const percent = calculateScrollPercentage(
+          event.target.scrollingElement
+        );
+
+        progressBar.style.width = `${percent}%`;
+      });
+    </script>
+  </body>
+</html>
