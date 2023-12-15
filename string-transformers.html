@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String transformers</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      .navbar-app {
+        background-color: rgb(249, 250, 251);
+        box-shadow: 0 1px 3px 0 rgba(0 0 0 / 0.1),
+          0 1px 2px -1px rgba(0 0 0 / 0.1);
+      }
+
+      .navbar-app h1 {
+        font-size: 1.5rem;
+      }
+
+      .challenge-grid {
+        margin: 2rem 0;
+      }
+
+      .transformers {
+        text-align: left;
+        margin: auto;
+      }
+
+      .transformers div {
+        font-size: 1.2rem;
+        margin: 1.5rem 0;
+        padding: 1rem;
+        background-color: beige;
+        position: relative;
+      }
+
+      .transformers label {
+        font-size: 0.75rem;
+        position: absolute;
+        top: -0.75rem;
+        left: 1rem;
+        background-color: #000;
+        color: #fff;
+        padding: 0.25rem;
+      }
+
+      @media screen and (max-width: 600px) {
+        .challenge-card h3 {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar-app">
+      <header class="d-flex justify-content-center py-3">
+        <h1>String transformers</h1>
+      </header>
+    </div>
+
+    <div class="container text-center">
+      <main class="challenge-grid">
+        <input
+          class="form-control"
+          id="userInput"
+          type="text"
+          placeholder="Enter a string to transform"
+          autocomplete="off"
+        />
+
+        <div class="transformers">
+          <div>
+            <label>Lower Case</label>
+            <span id="lowercase"></span>
+          </div>
+          <div>
+            <label>Upper Case</label>
+            <span id="uppercase"></span>
+          </div>
+          <div>
+            <label>Camel Case</label>
+            <span id="camelcase"></span>
+          </div>
+          <div>
+            <label>Pascal Case</label>
+            <span id="pascalcase"></span>
+          </div>
+          <div>
+            <label>Snake Case</label>
+            <span id="snakecase"></span>
+          </div>
+          <div>
+            <label>Kebab Case</label>
+            <span id="kebabcase"></span>
+          </div>
+          <div>
+            <label>Trim</label>
+            <span id="trim"></span>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      const userInput = document.getElementById('userInput');
+      const lowercase = document.getElementById('lowercase');
+      const uppercase = document.getElementById('uppercase');
+      const camelcase = document.getElementById('camelcase');
+      const pascalcase = document.getElementById('pascalcase');
+      const snakecase = document.getElementById('snakecase');
+      const kebabcase = document.getElementById('kebabcase');
+      const trim = document.getElementById('trim');
+
+      userInput.addEventListener('input', function (event) {
+        let value = event.target.value;
+
+        lowerCase(value);
+        upperCase(value);
+        camelCase(value);
+        pascalCase(value);
+        snakeCase(value);
+        kebabCase(value);
+        trimString(value);
+      });
+
+      function lowerCase(value) {
+        lowercase.innerHTML = value.toLowerCase();
+      }
+
+      function upperCase(value) {
+        uppercase.innerHTML = value.toUpperCase();
+      }
+
+      function camelCase(value) {
+        value = value.trim().split(' ');
+        value = value.map((data) =>
+          data ? data[0].toUpperCase() + data.slice(1) : ''
+        );
+        value = value.join('');
+        value = value ? value[0].toLowerCase() + value.slice(1) : '';
+
+        camelcase.innerHTML = value;
+      }
+
+      function pascalCase(value) {
+        value = value.trim().split(' ');
+        value = value.map((data) =>
+          data ? data[0].toUpperCase() + data.slice(1) : ''
+        );
+        value = value.join('');
+
+        pascalcase.innerHTML = value;
+      }
+
+      function snakeCase(value) {
+        snakecase.innerHTML = value.replaceAll(' ', '_');
+      }
+
+      function kebabCase(value) {
+        kebabcase.innerHTML = value.replaceAll(' ', '-');
+      }
+
+      function trimString(value) {
+        trim.innerHTML = value.replaceAll(' ', '');
+      }
+    </script>
+  </body>
+</html>
