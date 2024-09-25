@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown Timer</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+      .main {
+        width: 100%;
+        height: 100vh;
+        background: url('./images/countdown-timer/1802071.webp') center center;
+        background-size: cover;
+      }
+
+      .overlay {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+
+      .title {
+        margin-top: 10px;
+        color: white;
+        text-align: center;
+        font-size: 2.5rem;
+      }
+
+      .col {
+        margin-top: 20px;
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        color: white;
+      }
+
+      .col div {
+        width: 250px;
+        text-align: center;
+      }
+
+      input {
+        width: 50%;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-color: transparent;
+        border-radius: 5px;
+        height: 50px;
+        text-align: center;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="overlay">
+        <div class="title">We are coming soon</div>
+        <div class="title" id="end-date">20 March 2022 10:00 PM</div>
+        <div class="col">
+          <div>
+            <input type="text" readonly id="days" value="0" />
+            <br />
+            <label for="">Days</label>
+          </div>
+          <div>
+            <input type="text" readonly id="hours" value="0" />
+            <br />
+            <label for="">Hours</label>
+          </div>
+          <div>
+            <input type="text" readonly id="minutes" value="0" />
+            <br />
+            <label for="">Minutes</label>
+          </div>
+          <div>
+            <input type="text" readonly id="seconds" value="0" />
+            <br />
+            <label for="">Seconds</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const months = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+      ];
+      const currentDate = new Date();
+      const endDate = new Date(currentDate.getTime() + 60 * 60 * 32 * 1000);
+
+      document.getElementById('end-date').innerHTML =
+        endDate.getDate() +
+        ' ' +
+        months[endDate.getMonth()] +
+        ' ' +
+        endDate.getFullYear() +
+        ' ' +
+        endDate.toLocaleString('en-US', {
+          hour: 'numeric',
+          minute: 'numeric',
+          hour12: true,
+        });
+
+      function getTimeRemaining(endDate) {
+        const total = Date.parse(endDate) - Date.parse(new Date());
+        const seconds = Math.floor((total / 1000) % 60);
+        const minutes = Math.floor((total / 1000 / 60) % 60);
+        const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+        const days = Math.floor(total / (1000 * 60 * 60 * 24));
+
+        document.getElementById('days').value = days;
+        document.getElementById('hours').value = hours;
+        document.getElementById('minutes').value = minutes;
+        document.getElementById('seconds').value = seconds;
+      }
+
+      getTimeRemaining(endDate);
+
+      setInterval(function () {
+        getTimeRemaining(endDate);
+      }, 1000);
+    </script>
+  </body>
+</html>
